@@ -1,7 +1,17 @@
 # Automated Data Pipeline Using Apache Airflow
 
 ## 🚀 Project Overview
-This project demonstrates an end-to-end data engineering pipeline that collects real-time weather data using OpenWeatherMap API, processes it, and stores it in Azure Blob Storage and Azure SQL Database — orchestrated by Apache Airflow and containerized with Docker.
+This project demonstrates an end-to-end data engineering pipeline that collects real-time weather data using OpenWeatherMap API, processes it, and stores it in Azure Blob Storage and Azure SQL Database - orchestrated by Apache Airflow and containerized with Docker.
+
+## 🏗️ Architecture
+![Architechture](screenshots/architechture.png)
+
+## 🧠 Pipeline Workflow
+
+1. `extract.py` fetches weather data for a city and uploads the raw JSON to Azure Blob Storage (`weather-raw` container).
+2. `transform.py` reads raw JSON, converts it into a clean CSV format, and uploads it to the `weather-processed` container.
+3. `load.py` reads the latest processed CSV from Blob Storage and loads it into a table in Azure SQL Database.
+4. Airflow DAG (`weather_etl_pipeline`) schedules and manages the entire ETL pipeline daily using three PythonOperator tasks: extract → transform → load.
 
 ## 🔧 Tools & Tech Stack
 - Apache Airflow (DAGs, scheduling, monitoring)
@@ -10,13 +20,6 @@ This project demonstrates an end-to-end data engineering pipeline that collects 
 - Python (requests, pandas, sqlalchemy)
 - Docker (containerized Airflow)
 - OpenWeatherMap API (live weather feed)
-
-## 🧠 Pipeline Workflow
-
-1. `extract.py` fetches weather data for a city and uploads the raw JSON to Azure Blob Storage (`weather-raw` container).
-2. `transform.py` reads raw JSON, converts it into a clean CSV format, and uploads it to the `weather-processed` container.
-3. `load.py` reads the latest processed CSV from Blob Storage and loads it into a table in Azure SQL Database.
-4. Airflow DAG (`weather_etl_pipeline`) schedules and manages the entire ETL pipeline daily using three PythonOperator tasks: extract → transform → load.
 
 ## 📁 Azure Containers
 - `weather-raw`: holds raw JSON files
