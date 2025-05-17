@@ -33,11 +33,3 @@ This project demonstrates an end-to-end data engineering pipeline that collects 
   - `wind_speed`
 - The data from the processed CSV is inserted into this table using the SQLAlchemy and pyodbc drivers.
 
-## 🚀 Execution
-Deployed and tested in a local Docker-Apache Airflow setup using [Puckel's Airflow Docker image](https://github.com/puckel/docker-airflow). All Python scripts are triggered via DAG tasks, with each step validated independently.
-
----
-
-✅ **Bonus**: This project uses the medallion architecture principle by separating raw and processed layers before loading the cleaned data into a final analytics-ready database.
-
-📂 **Project Structure**
