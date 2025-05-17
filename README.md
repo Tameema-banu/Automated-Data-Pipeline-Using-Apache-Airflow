@@ -31,5 +31,5 @@ This project demonstrates an end-to-end data engineering pipeline that collects 
   - `temperature`
   - `humidity`
   - `wind_speed`
-- The data from the processed CSV is inserted into this table using the SQLAlchemy and pyodbc drivers.
+- The data from the processed CSV is inserted into this table using the SQLAlchemy.
 
