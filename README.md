@@ -35,6 +35,7 @@ This project demonstrates an end-to-end data engineering pipeline that collects 
   - `humidity`
   - `wind_speed`
 - The data from the processed CSV is inserted into this table using the SQLAlchemy.
-
+  
+## Check the CLI Commands Guide :
 [🛠️ CLI Commands Guide](cli_commands.md)
 
